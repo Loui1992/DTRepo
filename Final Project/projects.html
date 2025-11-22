@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/background.jpg') no-repeat center center/cover;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Navigation bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 0;
+            backdrop-filter: blur(8px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00c8ff;
+        }
+
+        /* Main title */
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 40px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        /* Project cards container */
+        .projects-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Individual project card */
+        .project-card {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px black;
+            backdrop-filter: blur(6px);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00eaff;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .project-links a {
+            display: inline-block;
+            padding: 8px 14px;
+            margin-right: 10px;
+            margin-top: 5px;
+            background: #00c8ff;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .project-links a:hover {
+            background: white;
+        }
+        /* Fade transition effects */
+body {
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html">Profile</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="certifications.html">Certifications</a>
+    </nav>
+
+    <h1>My Projects</h1>
+
+    <div class="projects-container">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card">
+            <div class="project-title">Product Filter & Sort</div>
+            <div class="project-description">
+                A small web application that filters and sorts product data using arrays, objects,
+                and DOM manipulation in JavaScript.
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Loui1992/DTRepo/tree/173576722591e6cb7c5ae61de76be2581693ca6e/Activity%20%2311" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card">
+            <div class="project-title">Joke Generator</div>
+            <div class="project-description">
+                A simple HTML/CSS/JavaScript project that displays a random joke when a button is clicked.
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Loui1992/DTRepo/tree/173576722591e6cb7c5ae61de76be2581693ca6e/Activity%20%2312" target="_blank">GitHub</a>
+            </div>
+        </div>
+
+    </div>
+<script>
+// Fade-in when page loads
+window.onload = () => {
+    document.body.classList.remove("fade-out");
+};
+
+// Fade-out when navigating to another page
+document.querySelectorAll("a").forEach(link => {
+    if (link.href && !link.target) {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location = this.href;
+            }, 600); // match CSS duration
+        });
+    }
+});
+</script>
+</body>
+</html>
